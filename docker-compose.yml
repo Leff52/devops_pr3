@@ -1,0 +1,16 @@
+services:
+  server:
+    build: ./server
+    ports:
+      - "7001:7001"
+  fastapi:
+    build: ./fastapi
+    ports:
+      - "7002:7002"
+  frontend:
+    build: ./frontend
+    ports:
+      - "8088:80"
+    depends_on:
+      - server
+      - fastapi
